@@ -6,7 +6,7 @@ highlighter:      rouge
 title:            Blog
 tagline:          'A Jekyll theme'
 description:      'refreshed.'
-url:              https://yonghwanjang0.github.io
+url:              https://yonghwanjang0.github.io/index.html
 baseurl:          ''
                   # the optional subpath of your site, e.g. "/blog"
                   # NB: This applies to all pages in your Jekyll site.
