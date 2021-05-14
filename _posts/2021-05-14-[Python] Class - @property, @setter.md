@@ -4,7 +4,6 @@ title: Python의 접근자와 설정자, @property / @name.setter
 categories: [Python]
 excerpt_separator:  <!--more-->
 ---
-# Python의 접근자와 설정자, @property / @name.setter
 
 ## 설명
 접근자(getter) : 인스턴스 내부의 값에 접근을 할 수 있도록 해주는 메서드
