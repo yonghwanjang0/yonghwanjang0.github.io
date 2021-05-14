@@ -1,6 +1,6 @@
 ---
 layout: post
-title: [Python] Class - @property, @setter
+title: Python의 접근자와 설정자, @property / @name.setter
 categories: [Python]
 excerpt_separator:  <!--more-->
 ---
