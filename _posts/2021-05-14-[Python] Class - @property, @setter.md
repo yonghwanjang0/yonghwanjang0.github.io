@@ -99,7 +99,7 @@ jane = Info("Jane", "010-1000-1000")
 
 또한 이렇게 접근자와 설정자를 구현할 경우, 메소드를 직접 호출하여 사용하는 방법은 불가능해진다.
 
-```{.python}
+```python
 >>> jane.name("Jane Roe")
 Traceback (most recent call last):
   File "<pyshell#1>", line 1, in <module>
