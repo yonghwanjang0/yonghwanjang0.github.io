@@ -88,7 +88,7 @@ class Champion(metaclass=ABCMeta):
         self.attack_damage = 50
         self.ability_power = 0
         self.armor = 0
-        self.magic_registance = 0
+        self.magic_resistance = 0
         self.exp = 0
         self.level = 1
     
@@ -130,7 +130,7 @@ class Swordsman(Champion):
         self.attack_damage = 55
         self.ability_power = 0
         self.armor = 10
-        self.magic_registance = 0
+        self.magic_resistance = 0
         self.exp = 0
         self.level = 1
     
@@ -201,7 +201,7 @@ class Magician(Champion):
 Traceback (most recent call last):
   File "<pyshell#1>", line 1, in <module>
     champ = Champion()
-TypeError: Can't instantiate abstract class Champion with 
+TypeError: Cant instantiate abstract class Champion with 
 abstract methods attack, first_skill, passive_skill, second_skill, 
 third_skill, ultimate_skill
 
@@ -216,7 +216,7 @@ third_skill, ultimate_skill
 Traceback (most recent call last):
   File "<pyshell#1>", line 1, in <module>
     blue_team.player1.champion = Swordsman()
-TypeError: Can't instantiate abstract class Swordsman with 
+TypeError: Cant instantiate abstract class Swordsman with 
 abstract methods ultimate_skill
 # 궁극기에 해당하는 ultimate_skill 메서드를 생략하고 
 # 객체를 생성하려 시도해보니 에러가 나는 것을 확인할 수 있다.
