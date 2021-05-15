@@ -60,9 +60,13 @@ class Champion(metaclass=ABCMeta):
     def passive_skill(self):
         pass
 ```
+
+- - -
+#### 추상 클래스 선언시 주의 사항
 * @abstractmethod를 한 개도 넣지 않을 경우, 추상 클래스가 되지 않는다.
 * @abstractmethod가 장식된 메서드는 자식 클래스에서 필수로 구현해야 한다.
 * 자식 클래스에서 @abstractmethod로 지정된 모든 메서드들을 구현하지 않으면, 객체 생성 시 에러가 발생한다.
+
 - - -
 ### 예시 코드
 ```python
