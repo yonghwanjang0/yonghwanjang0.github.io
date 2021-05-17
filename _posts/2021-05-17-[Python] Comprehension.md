@@ -42,13 +42,14 @@ sample = [number * 2 for number in range(1, 11)]
 ```
 
 * 변수를 이용해서 리스트에 넣고 싶은 값
- * for 문의 append 함수에 인자로 넣는 값을 이곳에 적는다. (ex : 2를 곱한 값 (number * 2), 제곱을 한 값 (number ** 2)), 실제 리스트에 담고 싶은 것을 for 앞에 적어준다.
+  * for 문의 append 함수에 인자로 넣는 값을 이곳에 적는다. (ex : 2를 곱한 값 (number * 2), 제곱을 한 값 (number ** 2)), 실제 리스트에 담고 싶은 것을 for 앞에 적어준다.
 
 * 사용할 변수 이름
- * 위의 예시로 든 for 문에서는 for와 in 사이의 'number'에 해당한다. 숫자를 다루는 상황이기에 number를 사용했지만, 이해하기 편한 문자라면 어느 것을 사용해도 상관없다. 주의할 점이 있다면, for의 앞에 적히는 실제 리스트에 넣고 싶은 값에 사용하는 변수명과 일치시켜야 정상적으로 작동한다.
+  * 위의 예시로 든 for 문에서는 for와 in 사이의 'number'에 해당한다. 숫자를 다루는 상황이기에 number를 사용했지만, 이해하기 편한 문자라면 어느 것을 사용해도 상관없다. 주의할 점이 있다면, for의 앞에 적히는 실제 리스트에 넣고 싶은 값에 사용하는 변수명과 일치시켜야 정상적으로 작동한다.
 
 * 순회 방법
- * 위의 예시로 든 for 문의 range에 해당하는 부분이다. range 외에도 iterable이 가능한 어떤 객체든 넣어도 상관없다.
+  * 위의 예시로 든 for 문의 range에 해당하는 부분이다. range 외에도 iterable이 가능한 어떤 객체든 넣어도 상관없다.
+
 - - -
 #### if 조건문 사용
 for 문에서도 반복과정에서 if 조건문을 달아 list에 담을 자료를 걸러 낼 수 있는 것처럼, Comprehension에서도 if 조건문을 사용할 수 있다.    
@@ -152,8 +153,8 @@ set_sample = {s for s in range(20)}
 >>> set_sample
 {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 
 11, 12, 13, 14, 15, 16, 17, 18, 19}
->>> type(set_sample)
-<class 'set'>
+# >>> type(set_sample)
+# <class 'set'>
 
 # 이중 for 문의 사용
 duplicate = {s for s in range(20) for t in range(3)}
@@ -178,7 +179,8 @@ score_dict = {key: value for key, value in zip(subjects, scores)}
 
 물론 이중 list나, tuple 쌍으로 표현되고 있는 형태의 자료도 dict로 변경할 수 있다.
 ```python
-score_tuples = [('Ella', 98), ('John', 80), ('Mia', 95), ('James', 92), ('Oliver', 100)]
+score_tuples = [('Ella', 98), ('John', 80), ('Mia', 95), 
+                            ('James', 92), ('Oliver', 100)]
 score_dict = {t[0]: t[1] for t in score_tuples}
 
 >>> score_dict
@@ -193,10 +195,10 @@ Generator Expression을 사용하기 위해서는 '()'을 사용해서 문법을
 ```python
 generator = (g for g in range(5))
 
->>> generator
-<generator object <genexpr> at 0x0000000002C0E150>
->>> type(generator)
-<class 'generator'>
+# >>> generator
+# <generator object <genexpr> at 0x0000000002C0E150>
+# >>> type(generator)
+# <class 'generator'>
 
 # 원소를 사용하기 위해서는 next 함수를 사용한다.
 >>> next(generator)
@@ -218,7 +220,7 @@ Traceback (most recent call last):
 StopIteration
 ```
 - - -
- ### Comprehension은 정말 처리 속도가 빠를까?
+### Comprehension은 정말 처리 속도가 빠를까?
 Comprehension 관련해서 공부를 하다 보면 Comprehension을 사용하는 것이 퍼포먼스 면에서도 이득이라는 내용을 보게 된다. 정말로 그런지 테스트해 보았다.
 ```python
 import time
