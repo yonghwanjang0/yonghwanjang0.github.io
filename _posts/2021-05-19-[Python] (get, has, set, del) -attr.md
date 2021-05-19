@@ -172,7 +172,7 @@ class BoundCheck:
 
 따라서 클래스의 메서드를 재정의했으니 그에 영향을 받는 인스턴스들도 변화가 생기게 되고, 그런 변화 이전에 먼저 재정의 과정을 거친 인스턴스 객체에는 영향을 끼치지 않게 되는 것이다.
 
-이런 이유로 생성자("__init__")를 통해서 만들어지는 인스턴스 객체의 attribute는 클래스를 통해서 재정의가 불가능하다. 클래스를 통해 접근하여 재정의가 가능한 attribute는 클래스 변수나 메서드뿐이다.
+이런 이유로 생성자(init)를 통해서 만들어지는 인스턴스 객체의 attribute는 클래스를 통해서 재정의가 불가능하다. 클래스를 통해 접근하여 재정의가 가능한 attribute는 클래스 변수나 메서드뿐이다.
 ```python
 >>> setattr(BoundCheck, 'var', 'new_var')
 >>> BoundCheck.var
@@ -190,6 +190,10 @@ delattr의 문법은 다음과 같다.
 object에 존재하는 name과 일치하는 attribute를 삭제한다. 일치하는 attribute가 없다면 AttributeError를 발생시킨다.
 
 ```python
+>>> a. age
+23
+
+# attribute를 삭제한다.
 >>> delattr(a, 'age')
 >>> a.age
 Traceback (most recent call last):
@@ -197,6 +201,7 @@ Traceback (most recent call last):
     a.age
 AttributeError: 'Example' object has no attribute 'age'
 
+# 삭제된 attribute를 호출시 AttributeError가 발생한다.
 >>> delattr(a, 'age')
 Traceback (most recent call last):
   File "<pyshell#1>", line 1, in <module>
@@ -207,6 +212,9 @@ AttributeError: age
 
 삭제는 delattr 외에도 "del object.attribute"의 형태로도 삭제가 가능하다.
 ```python
+>>> a.name
+'Ella'
+
 >>> del a.name
 >>> a.name
 Traceback (most recent call last):
@@ -218,7 +226,7 @@ name이 잘 삭제된 것을 확인할 수 있다.
 
 물론 delattr의 경우에도 객체에 직접 접근하는 것이므로 클래스 attribute에 직접 접근하여 삭제가 가능한 것은 setattr과 마찬가지이다. 단, 인스턴스에 있는 bound method는 클래스에 의존하기 때문에 setattr로 재정의는 가능하나 삭제는 불가능하다. 
 
-또한 setattr 함수와 마찬가지로 생성자("__init__")를 통해서 만들어지는 인스턴스 객체의 attribute는 클래스를 통해서 삭제가 불가능하다. 클래스에 접근하여 삭제가 가능한 attribute는 클래스 변수나 메서드뿐이다.
+또한 setattr 함수와 마찬가지로 생성자(init)를 통해서 만들어지는 인스턴스 객체의 attribute는 클래스를 통해서 삭제가 불가능하다. 클래스에 접근하여 삭제가 가능한 attribute는 클래스 변수나 메서드뿐이다.
 
 ```python
 class DeleteTest:
