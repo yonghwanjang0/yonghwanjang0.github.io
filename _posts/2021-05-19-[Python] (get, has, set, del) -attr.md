@@ -190,7 +190,7 @@ delattr의 문법은 다음과 같다.
 object에 존재하는 name과 일치하는 attribute를 삭제한다. 일치하는 attribute가 없다면 AttributeError를 발생시킨다.
 
 ```python
->>> a. age
+>>> a.age
 23
 
 # attribute를 삭제한다.
@@ -201,7 +201,7 @@ Traceback (most recent call last):
     a.age
 AttributeError: 'Example' object has no attribute 'age'
 
-# 삭제된 attribute를 호출시 AttributeError가 발생한다.
+# 없는 attribute를 삭제하려고 하면 AttributeError가 발생한다.
 >>> delattr(a, 'age')
 Traceback (most recent call last):
   File "<pyshell#1>", line 1, in <module>
