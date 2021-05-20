@@ -78,15 +78,24 @@ setattr의 문법은 다음과 같다.
 setattr 함수는 2번째 인자로 문자열을 받아, 문자열에 해당하는 attribute에 3번째 인자로 받은 값을 할당하는 함수이다. 
 
 ```python
+>>> a.name
+'Oliver'
+
 >>> setattr(a, 'name', 'Ella')
 >>> a.name
 'Ella'
 ```
-a 객체의 name이 'Ella'로 변경된 것을 확인할 수 있다.
+a 객체의 name이 'Oliver'에서 'Ella'로 변경된 것을 확인할 수 있다.
 
 setattr 함수는 해당 객체에 문자열로 받은 attribute가 없더라도 값을 할당할 수 있다. 이렇게 사용할 경우 객체에 문자열을 attribute 명으로 삼아 새로운 속성을 선언하게 된다.
 
 ```python
+>>> a.age
+Traceback (most recent call last):
+  File "<pyshell#1>", line 1, in <module>
+    a.age
+AttributeError: 'Example' object has no attribute 'age'
+
 >>> setattr(a, 'age', 23)
 >>> a.age
 23
@@ -102,8 +111,11 @@ class ModifyTest:
     def test_method(self):
         print('this is test')
 
-# first 인스턴스 객체의 메서드를 재정의했다.
 >>> first = ModifyTest()
+>>> first.test_method()
+'this is test'
+
+# first 인스턴스 객체의 메서드를 재정의했다.
 >>> setattr(first, 'test_method', 'b')
 >>> first.test_method
 'b'
@@ -172,7 +184,7 @@ class BoundCheck:
 
 따라서 클래스의 메서드를 재정의했으니 그에 영향을 받는 인스턴스들도 변화가 생기게 되고, 그런 변화 이전에 먼저 재정의 과정을 거친 인스턴스 객체에는 영향을 끼치지 않게 되는 것이다.
 
-이런 이유로 생성자(init)를 통해서 만들어지는 인스턴스 객체의 attribute는 클래스를 통해서 재정의가 불가능하다. 클래스를 통해 접근하여 재정의가 가능한 attribute는 클래스 변수나 메서드뿐이다.
+이런 이유로 생성자(init)를 통해서 만들어지는 인스턴스 객체의 변수는 클래스를 통해서 재정의가 불가능하다. 클래스를 통해 접근하여 재정의가 가능한 attribute는 클래스 변수와 메서드이다. 인스턴스 객체의 변수는 인스턴스 객체에 setattr 함수를 사용해서 재정의해야 한다.
 ```python
 >>> setattr(BoundCheck, 'var', 'new_var')
 >>> BoundCheck.var
@@ -226,7 +238,7 @@ name이 잘 삭제된 것을 확인할 수 있다.
 
 물론 delattr의 경우에도 객체에 직접 접근하는 것이므로 클래스 attribute에 직접 접근하여 삭제가 가능한 것은 setattr과 마찬가지이다. 단, 인스턴스에 있는 bound method는 클래스에 의존하기 때문에 setattr로 재정의는 가능하나 삭제는 불가능하다. 
 
-또한 setattr 함수와 마찬가지로 생성자(init)를 통해서 만들어지는 인스턴스 객체의 attribute는 클래스를 통해서 삭제가 불가능하다. 클래스에 접근하여 삭제가 가능한 attribute는 클래스 변수나 메서드뿐이다.
+또한 setattr 함수와 마찬가지로 생성자(init)를 통해서 만들어지는 인스턴스 객체의 변수는 클래스를 통해서 삭제가 불가능하다. 클래스에 접근하여 삭제가 가능한 attribute는 클래스 변수와 메서드이다. 인스턴스 객체의 변수는 인스턴스 객체에 delattr 함수를 사용해서 삭제할 수 있다.
 
 ```python
 class DeleteTest:
